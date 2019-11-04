@@ -13,7 +13,7 @@ export default {
      * @param {Object} payload password {String} 密码
      * @param {Object} payload route {Object} 登录成功后定向的路由对象 任何 vue-router 支持的格式
      */
-    login ({ dispatch }, {
+    login({ dispatch }, {
       name = '',
       password = ''
     } = {}) {
@@ -29,7 +29,7 @@ export default {
             // uuid 是用户身份唯一标识 用户注册的时候确定 并且不可改变 不可重复
             // token 代表用户当前登录状态 建议在网络请求中携带 token
             // 如有必要 token 需要定时更新，默认保存一天
-            console.log("登录获取token", res.token)
+            console.log("登录结果", res)
             util.cookies.set('uuid', res._id)
             util.cookies.set('token', res.token)
             // 设置 vuex 用户信息
@@ -53,11 +53,11 @@ export default {
      * @param {Object} context
      * @param {Object} payload confirm {Boolean} 是否需要确认
      */
-    logout ({ commit, dispatch }, { confirm = false } = {}) {
+    logout({ commit, dispatch }, { confirm = false } = {}) {
       /**
        * @description 注销
        */
-      async function logout () {
+      async function logout() {
         // 删除cookie
         util.cookies.remove('token')
         util.cookies.remove('uuid')
@@ -92,7 +92,7 @@ export default {
      * @description 用户登录后从持久化数据加载一系列的设置
      * @param {Object} context
      */
-    load ({ dispatch }) {
+    load({ dispatch }) {
       return new Promise(async resolve => {
         // DB -> store 加载用户名
         await dispatch('d2admin/user/load', null, { root: true })

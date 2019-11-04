@@ -14,7 +14,7 @@ export default {
   methods: {
     getUserInfo() {
       UserInfo().then(res => {
-        console.log("获取用户", res.data)
+        console.log("获取用户", res)
       })
     }
   }

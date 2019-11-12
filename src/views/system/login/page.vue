@@ -32,7 +32,12 @@
                     <i slot="prepend" class="fa fa-keyboard-o"></i>
                   </el-input>
                 </el-form-item>
-                <el-form-item prop="code">
+                <el-form-item v-if="!isLogin" prop="checkPass">
+                  <el-input type="password" v-model="formLogin.checkPass" auto-complete="off" placeholder="确认密码">
+                    <i slot="prepend" class="fa fa-keyboard-o"></i>
+                  </el-input>
+                </el-form-item>
+                <el-form-item v-if="isLogin" prop="code">
                   <el-input type="text" v-model="formLogin.code" placeholder="验证码">
                     <template slot="append">
                       <img class="login-code" src="./image/login-code.png">
@@ -40,13 +45,13 @@
                   </el-input>
                 </el-form-item>
                 <el-button size="default" @click="submit" type="primary" class="button-login">
-                  登录
+                  {{isLogin ? '登录' : '注册'}}
                 </el-button>
               </el-form>
             </el-card>
             <p class="page-login--options" flex="main:justify cross:center">
               <span><d2-icon name="question-circle"/> 忘记密码</span>
-              <span>注册用户</span>
+              <span @click="isLogin = !isLogin">{{isLogin ? '注册用户' : '返回登录'}}</span>
             </p>
             <!-- quick login -->
             <el-button class="page-login--quick" size="default" type="info" @click="dialogVisible = true">
@@ -93,14 +98,26 @@
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import localeMixin from '@/locales/mixin.js'
+import { Register } from '@/api/sys.login'
 export default {
   mixins: [ localeMixin],
   data () {
+    // 确认密码
+    const validatePass = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请再次输入密码'))
+      } else if (value !== this.formLogin.password) {
+        callback(new Error('两次输入密码不一致!'))
+      } else {
+        callback();
+      }
+    }
     return {
       timeInterval: null,
       time: dayjs().format('HH:mm:ss'),
       // 快速选择用户
       dialogVisible: false,
+      isLogin: true,
       users: [
         {
           name: 'Admin',
@@ -117,6 +134,7 @@ export default {
       formLogin: {
         name: 'admin',
         password: '123456',
+        checkPass: '',
         code: 'v9am'
       },
       // 表单校验
@@ -133,6 +151,12 @@ export default {
             required: true,
             message: '请输入密码',
             trigger: 'blur'
+          }
+        ],
+        checkPass: [
+          { 
+            validator: validatePass, 
+            trigger: 'blur' 
           }
         ],
         code: [
@@ -168,14 +192,24 @@ export default {
     submit () {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          this.login({
-            name: this.formLogin.name,
-            password: this.formLogin.password
-          })
+          if(this.isLogin) {
+            this.login({
+              name: this.formLogin.name,
+              password: this.formLogin.password
+            })
             .then(() => {
               // 重定向对象不存在则返回顶层路径
               this.$router.replace(this.$route.query.redirect || '/')
             })
+          } else {
+            Register({
+              name: this.formLogin.name,
+              password: this.formLogin.password
+            })
+            .then(() => {
+              this.isLogin = true
+            })
+          }
         } else {
           // 登录表单校验失败
           this.$message.error('表单校验失败，请检查')

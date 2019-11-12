@@ -8,6 +8,14 @@ export const AccountLogin = (data) => {
   })
 }
 
+export const Register = (data) => {
+  return request({
+    url: '/users',
+    data,
+    method: 'post'
+  })
+}
+
 export const UserInfo = () => {
   return request({
     url: 'users',

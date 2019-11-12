@@ -67,6 +67,11 @@ service.interceptors.response.use(
     endLoading()
     // dataAxios 是 axios 返回数据中的 data
     const dataAxios = response.data.data
+    Message({
+      message: dataAxios.message,
+      type: 'success',
+      duration: 5 * 1000
+    })
     return dataAxios
   },
   error => {
@@ -80,6 +85,7 @@ service.interceptors.response.use(
         case 404: error.message = `请求地址出错: ${error.response.config.url}`; break
         case 422: error.message = '参数校验失败'; break
         case 408: error.message = '请求超时'; break
+        case 409: error.message = message; break
         case 500: error.message = '服务器内部错误'; break
         case 501: error.message = '服务未实现'; break
         case 502: error.message = '网关错误'; break

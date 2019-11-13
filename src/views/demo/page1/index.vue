@@ -8,13 +8,14 @@
 </template>
 
 <script>
+import { baseUrl } from '@/libs/util.system'
 import { UserInfo } from '@api/sys.login'
 export default {
   name: 'page1',
   methods: {
     getUserInfo() {
       UserInfo().then(res => {
-        console.log("获取用户", res)
+        console.log("获取用户", this.baseUrl)
       })
     }
   }

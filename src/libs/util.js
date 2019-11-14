@@ -31,4 +31,11 @@ util.open = function (url) {
   document.body.removeChild(document.getElementById('d2admin-link-temp'))
 }
 
+/**
+ * @deprecated 请求根地址
+ */
+
+util.baseUrl = process.env.VUE_APP_API
+ 
+
 export default util

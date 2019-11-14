@@ -1,25 +1,14 @@
 <template>
   <div>
     <el-upload
-      action="https://jsonplaceholder.typicode.com/posts/"
-      list-type="picture-card"
+      ref="upload"
+      :action="baseUrl + '/upload'"
+      :limit="limit"
+      :list-type="listType"
       :on-preview="handlePictureCardPreview"
+      :on-success="handleSuccess"
       :on-remove="handleRemove"
-    >
-      <i class="el-icon-plus"></i>
-    </el-upload>
-    <el-dialog :visible.sync="dialogVisible">
-      <img
-        width="100%"
-        :src="dialogImageUrl"
-        alt=""
-      >
-    </el-dialog>
-    <el-upload
-      action="https://jsonplaceholder.typicode.com/posts/"
-      list-type="picture-card"
-      :on-preview="handlePictureCardPreview"
-      :on-remove="handleRemove"
+      :on-progress="handleProgress"
     >
       <i class="el-icon-plus"></i>
     </el-upload>
@@ -33,18 +22,38 @@
   </div>
 </template>
 <script>
-import baseUrl from '@/plugin/axios'
+import util from "@/libs/util";
 export default {
+  props: {
+    /**
+     * @description 最大上传个数
+     */
+    limit: {
+      type: Number
+    },
+    /**
+     * @description 文件列表类型
+     */
+    listType: {
+      type: String
+    }
+  },
   data() {
     return {
+      baseUrl: util.baseUrl,
+      imgList: [],
       dialogImageUrl: "",
       dialogVisible: false
     };
   },
   methods: {
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
+    handleSuccess(file) {
+      this.$emit("success", file);
     },
+    handleRemove(file) {
+      // this.$emit("remove", index)
+    },
+    handleProgress() {},
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
       this.dialogVisible = true;
@@ -52,3 +61,15 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.el-upload--picture-card {
+  height: 100px;
+  width: 100px;
+  line-height: 120px;
+}
+.el-upload-list--picture-card .el-upload-list__item {
+  height: 100px;
+  width: 100px;
+}
+</style>

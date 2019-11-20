@@ -3,10 +3,10 @@ $theme-name: 'tomorrow-night-blue';
 // 主题背景颜色
 $theme-bg-color: #002253;
 // 主题背景图片遮罩
-$theme-bg-mask: rgba(#000, 0);
+$theme-bg-mask: rgba(#000, 0.3);
 
 // container组件
-$theme-container-background-color: rgba(#FFF, 1);
+$theme-container-background-color: rgba(#FFF, 0.3);
 $theme-container-header-footer-background-color: #FFF;
 $theme-container-border-inner: 1px solid $color-border-1;
 $theme-container-border-outer: 1px solid #002253;

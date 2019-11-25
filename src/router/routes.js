@@ -49,6 +49,15 @@ const frameIn = [
         },
         component: _import('demo/page3')
       },
+      {
+        path: 'person',
+        name: 'person',
+        meta: {
+          title: '个人主页',
+          auth: true
+        },
+        component: _import('demo/person')
+      },
       // 系统 前端日志
       {
         path: 'log',

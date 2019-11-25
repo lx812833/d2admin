@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-upload
+      v-if="maxLimlit < limit"
       ref="upload"
       :action="baseUrl + '/upload'"
       :limit="limit"
@@ -13,11 +14,7 @@
       <i class="el-icon-plus"></i>
     </el-upload>
     <el-dialog :visible.sync="dialogVisible">
-      <img
-        width="100%"
-        :src="dialogImageUrl"
-        alt=""
-      >
+      <img width="100%" :src="dialogImageUrl" alt="">
     </el-dialog>
   </div>
 </template>
@@ -43,11 +40,13 @@ export default {
       baseUrl: util.baseUrl,
       imgList: [],
       dialogImageUrl: "",
-      dialogVisible: false
+      dialogVisible: false,
+      maxLimlit: 0
     };
   },
   methods: {
     handleSuccess(file) {
+      this.maxLimlit++;
       this.$emit("success", file);
     },
     handleRemove(file) {

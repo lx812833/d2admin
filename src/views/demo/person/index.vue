@@ -32,7 +32,8 @@
 
 <script>
 import upload from "@/components/d2-upload"
-import { UserInfo } from '@api/sys.login'
+import { mapState, mapActions } from 'vuex'
+import { UserInfo } from '@api/user'
 export default {
   name: 'person',
   components: {
@@ -61,13 +62,22 @@ export default {
       ]
     };
   },
+  computed: {
+    ...mapState('d2admin/user', [
+      'info'
+    ])
+  },
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!');
+          UserInfo(this.ruleForm, this.info.uuid).then(res => {
+          })
         } else {
-          console.log('error submit!!');
+          this.$message({
+            message: '相关参数未完善',
+            type: 'warning'
+          });
           return false;
         }
       });

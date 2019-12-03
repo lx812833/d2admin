@@ -1,7 +1,7 @@
 <template>
   <el-card class="box-card-component" style="margin-left:8px;">
     <div slot="header" class="box-card-header">
-      <img src="https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png">
+      <img :src="imageUrl" @click="handleView([imageUrl])">
     </div>
     <div style="position:relative;">
       <div style="padding-top:35px;" class="progress-item">
@@ -40,9 +40,15 @@ export default {
       statisticsData: {
         article_count: 1024,
         pageviews_count: 1024
-      }
+      },
+      imageUrl: "https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png"
     };
-  }
+  },
+  methods: {
+    handleView(url) {
+      this.$store.commit('d2admin/image/setImageArray', { data: url })
+    }
+  },
 };
 </script>
 

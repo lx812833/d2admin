@@ -13,7 +13,7 @@
       <div class="pop-img"></div>
       <i class="el-icon-back last-img"></i>
       <i class="el-icon-right next-img"></i>
-      <img ref="bigImage" src="https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png" alt="">
+      <img ref="bigImage" v-drag src="https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png" alt="">
     </div>
   </div>
 </template>
@@ -74,6 +74,7 @@ export default {
       max-width: 1600px;
       margin: auto;
       z-index: 1000;
+      cursor: pointer;
     }
     .last-img {
       font-size: 50px;

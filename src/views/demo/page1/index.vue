@@ -1,5 +1,5 @@
 <template>
-  <d2-container>
+  <d2-container better-scroll>
     <template slot="header">Page 1 header</template>
     <el-button class="page-login--quick" size="default" type="info" @click="getUserInfo">
      获取用户信息

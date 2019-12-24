@@ -47,7 +47,7 @@ const frameIn = [
           title: '页面 3',
           auth: true
         },
-        component: _import('demo/page3')
+        component: _import('demo/page3/source')
       },
       {
         path: 'person',

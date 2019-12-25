@@ -5,13 +5,25 @@
 </template>
 
 <script>
-import doc from './md/doc.md'
+import { getContent } from "@api/content";
 export default {
-  data () {
+  data() {
     return {
-      doc
+      doc: ""
+    };
+  },
+  methods: {
+    getContentDoc() {
+      getContent("5e03757b461ce14104481021").then(res => {
+        let data = res.question;
+        this.doc = data.description;
+        console.log("获取markdown", data);
+      });
     }
+  },
+  mounted() {
+    this.getContentDoc();
   }
-}
+};
 </script>
 

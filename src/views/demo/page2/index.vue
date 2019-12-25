@@ -1,29 +1,32 @@
 <template>
-  <d2-container better-scroll>
-    <d2-simple-mde v-model="text" class="mde" />
-    <el-button type="primary" icon="el-icon-search" @click="handleConsole">打印</el-button>
+  <d2-container>
+    标题：<el-input v-model="title" placeholder="请输入文章标题" style="width: 200px; margin-bottom: 10px;"></el-input>
+    <d2-simple-mde v-model="introduction" class="mde" />
+    <el-button type="primary" icon="el-icon-edit" @click="handleSubmit">发表</el-button>
   </d2-container>
 </template>
 
 <script>
 import text from "./text";
-import { AddTopics } from "@api/topics"
+import { AddContent, getContent } from "@api/content"
 export default {
   data() {
     return {
-      text
+      title: "",
+      introduction: ""
     };
   },
   methods: {
-    handleConsole() {
+    handleSubmit() {
       const data = {
-        name: "Vue",
-        introduction: "Vue是前端三大框架之一"
+        title: this.title,
+        description: this.introduction
       }
-      AddTopics(data).then(res => {
+      AddContent(data).then(res => {
         console.log("创建话题", res)
+        this.title = "";
+        this.introduction = "";
       })
-      // console.log("打印", this.text)
     }
   }
 };
@@ -31,6 +34,6 @@ export default {
 
 <style lang="scss" scoped>
 .mde {
-  margin-bottom: -16px;
+  // margin-bottom: -16px;
 }
 </style>

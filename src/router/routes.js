@@ -44,7 +44,7 @@ const frameIn = [
         path: 'page3',
         name: 'page3',
         meta: {
-          title: '页面 3',
+          title: 'Markdown文本',
           auth: true
         },
         component: _import('demo/page3/source')

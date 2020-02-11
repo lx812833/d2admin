@@ -1,5 +1,5 @@
 <template>
-  <d2-container>
+  <d2-container better-scroll>
     标题：<el-input v-model="title" placeholder="请输入文章标题" style="width: 200px; margin-bottom: 10px;"></el-input>
     <d2-simple-mde v-model="introduction" class="mde" />
     <el-button type="primary" icon="el-icon-edit" @click="handleSubmit">发表</el-button>
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mde {
-  // margin-bottom: -16px;
-}
+// .mde {
+//   // margin-bottom: -16px;
+// }
 </style>

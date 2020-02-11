@@ -1,6 +1,6 @@
 <template>
   <d2-container better-scroll>
-    <d2-markdown :source="doc" highlight/>
+    <d2-markdown v-if="isShow" :source="doc" highlight/>
   </d2-container>
 </template>
 
@@ -9,15 +9,18 @@ import { getContent } from "@api/content";
 export default {
   data() {
     return {
-      doc: ""
+      doc: "",
+      isShow: true
     };
   },
   methods: {
     getContentDoc() {
+      this.isShow = false;
       getContent("5e03757b461ce14104481021").then(res => {
-        let data = res.question;
-        this.doc = data.description;
-        console.log("获取markdown", data);
+        this.$nextTick(() => {
+          this.isShow = true;
+          this.doc = res.question.description;
+        })
       });
     }
   },

@@ -58,6 +58,15 @@ const frameIn = [
         },
         component: _import('demo/person')
       },
+      {
+        path: 'uploadFile',
+        name: 'uploadFile',
+        meta: {
+          title: '大文件上传',
+          auth: true
+        },
+        component: _import('demo/uploadFile')
+      },
       // 系统 前端日志
       {
         path: 'log',

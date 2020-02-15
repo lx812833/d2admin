@@ -8,6 +8,7 @@ export default [
       { path: '/page1', title: '页面 1' },
       { path: '/page2', title: '页面 2' },
       { path: '/page3', title: 'Markdown文本' },
+      { path: '/uploadFile', title: '大文件上传' }
     ]
   },
   { path: '/index', title: '首页', icon: 'home' },

@@ -67,11 +67,13 @@ service.interceptors.response.use(
     endLoading()
     // dataAxios 是 axios 返回数据中的 data
     const dataAxios = response.data.data
-    Message({
-      message: dataAxios.message,
-      type: 'success',
-      duration: 5 * 1000
-    })
+    if(dataAxios && dataAxios.message) {
+      Message({
+        message: dataAxios.message,
+        type: 'success',
+        duration: 5 * 1000
+      })
+    }
     return dataAxios
   },
   error => {

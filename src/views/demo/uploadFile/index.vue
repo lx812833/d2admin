@@ -186,17 +186,13 @@ export default {
           const formData = new FormData(); // js form
           formData.append("chunk", chunk); // 文件 blob
           formData.append("hash", hash); // 切片 hash
-          formData.append("filename", this.container.file.name);
+          formData.append("fileName", this.container.file.name);
           formData.append("fileHash", this.container.hash); // 文件hash
           return { formData, index };
         })
-        .map(async ({ formData, index }) =>
-          chunkFile({
-            data: formData,
-            index
-          })
-        );
-      console.log("resultList", resultList);
+        .map(async ({ formData })  => {
+          chunkFile(formData);
+        })
       await Promise.all(resultList);
       // 合并请求
     }

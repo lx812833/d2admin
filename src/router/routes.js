@@ -32,22 +32,22 @@ const frameIn = [
         component: _import('demo/page1')
       },
       {
-        path: 'page2',
-        name: 'page2',
+        path: 'markdown/editor',
+        name: 'markdownEditor',
         meta: {
-          title: '页面 2',
+          title: 'Markdown编辑器',
           auth: true
         },
-        component: _import('demo/page2')
+        component: _import('demo/markdownEditor')
       },
       {
-        path: 'page3',
-        name: 'page3',
+        path: 'markdown/text',
+        name: 'markdownText',
         meta: {
           title: 'Markdown文本',
           auth: true
         },
-        component: _import('demo/page3/source')
+        component: _import('demo/markdownText/source')
       },
       {
         path: 'person',
@@ -66,6 +66,15 @@ const frameIn = [
           auth: true
         },
         component: _import('demo/uploadFile')
+      },
+      {
+        path: 'virtualList',
+        name: 'virtualList',
+        meta: {
+          title: '虚拟列表',
+          auth: true
+        },
+        component: _import('demo/virtualList')
       },
       // 系统 前端日志
       {

@@ -7,6 +7,7 @@
 <script>
 import { getContent } from "@api/content";
 export default {
+  name: "markdownText",
   data() {
     return {
       doc: "",

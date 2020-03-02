@@ -1,4 +1,3 @@
- <!-- 
 <template>
   <d2-container better-scroll>
     <template slot="header">大文件上传</template>
@@ -11,27 +10,6 @@
     <el-progress :percentage="hashPercenttage"></el-progress>
   </d2-container> 
 </template> 
--->
-
-<template>
-  <d2-container better-scroll>
-    <template slot="header">大文件上传</template>
-    <div class="input-file">
-      <i class="el-icon-s-cooperation">选择文件</i>
-      <input
-        type="file"
-        @change="handleFileChange"
-      />
-    </div>
-    <el-button
-      type="primary"
-      icon="el-icon-edit"
-      @click="handleUploadFile"
-    >上传</el-button>
-    <div>文件上传进度hash</div>
-    <el-progress :percentage="hashPercenttage"></el-progress>
-  </d2-container>
-</template>
 
 <script>
 import { verifyHash, chunkFile } from "@api/file";
@@ -125,16 +103,6 @@ export default {
         };
       });
     },
-    // async verifyUpload(fileName, fileHash) {
-    //   const data = await this.request({
-    //     url: "http://localhost:3000/verify",
-    //     headers: {
-    //       "content-type": "application/json"
-    //     },
-    //     data: JSON.stringify({ fileName, fileHash })
-    //   });
-    //   return data
-    // },
     verifyUpload(fileName, fileHash) {
       return new Promise((resolve, reject) => {
         let param = {
@@ -192,7 +160,7 @@ export default {
         })
         .map(async ({ formData })  => {
           chunkFile(formData);
-        })
+        });
       await Promise.all(resultList);
       // 合并请求
     }

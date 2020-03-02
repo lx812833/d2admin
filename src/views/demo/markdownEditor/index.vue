@@ -10,6 +10,7 @@
 import text from "./text";
 import { AddContent, getContent } from "@api/content"
 export default {
+  name: "markdownEditor",
   data() {
     return {
       title: "",

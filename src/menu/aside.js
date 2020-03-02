@@ -6,9 +6,10 @@ export default [
     icon: 'folder-o',
     children: [
       { path: '/page1', title: '页面 1' },
-      { path: '/page2', title: '页面 2' },
-      { path: '/page3', title: 'Markdown文本' },
-      { path: '/uploadFile', title: '大文件上传' }
+      { path: '/markdown/editor', title: 'Markdown编辑器' },
+      { path: '/markdown/text', title: 'Markdown文本' },
+      { path: '/uploadFile', title: '大文件上传' },
+      { path: '/virtualList', title: '虚拟列表'}
     ]
   },
   { path: '/index', title: '首页', icon: 'home' },

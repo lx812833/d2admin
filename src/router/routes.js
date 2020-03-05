@@ -76,6 +76,15 @@ const frameIn = [
         },
         component: _import('demo/virtualList')
       },
+      {
+        path: 'gridLayout',
+        name: 'gridLayout',
+        meta: {
+          title: '卡片拖拽',
+          auth: true
+        },
+        component: _import('demo/gridLayout')
+      },
       // 系统 前端日志
       {
         path: 'log',

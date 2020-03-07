@@ -3,7 +3,7 @@
     <el-upload
       v-if="maxLimlit < limit"
       ref="upload"
-      :action="baseUrl + '/upload'"
+      :action="baseUrl + '/image'"
       :limit="limit"
       :list-type="listType"
       :on-preview="handlePictureCardPreview"

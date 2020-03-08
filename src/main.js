@@ -17,15 +17,22 @@ import { frameInRoutes } from '@/router/routes'
 import directive from '@/directive'
 directive(Vue)
 
+// vxe-table 虚拟表格
+// https://xuliangzhan.github.io/vxe-table/#/table/start/use
+import 'xe-utils'
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/index.css'
+
 // 核心插件
 Vue.use(d2Admin)
+Vue.use(VXETable)
 
 new Vue({
   router,
   store,
   i18n,
   render: h => h(App),
-  created () {
+  created() {
     // 处理路由 得到每一级的路由设置
     this.$store.commit('d2admin/page/init', frameInRoutes)
     // 设置顶栏菜单
@@ -35,7 +42,7 @@ new Vue({
     // 初始化菜单搜索功能
     this.$store.commit('d2admin/search/init', menuHeader)
   },
-  mounted () {
+  mounted() {
     // 展示系统信息
     this.$store.commit('d2admin/releases/versionShow')
     // 用户登录后从数据库加载一系列的设置

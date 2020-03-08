@@ -85,6 +85,15 @@ const frameIn = [
         },
         component: _import('demo/gridLayout')
       },
+      {
+        path: 'vxeTable',
+        name: 'virtualTable',
+        meta: {
+          title: 'virtualTable',
+          auth: true
+        },
+        component: _import('demo/vxeTable')
+      },
       // 系统 前端日志
       {
         path: 'log',

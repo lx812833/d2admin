@@ -12,7 +12,7 @@
 import upload from "@/components/d2-upload"
 import { UserInfo } from '@api/sys.login'
 export default {
-  name: 'page1',
+  name: 'uploadImg',
   components: {
     upload
   },

@@ -1,3 +1,5 @@
+import features from './modules/features'
+
 import layoutHeaderAside from '@/layout/header-aside'
 
 // 由于懒加载页面太多的话会造成webpack热更新太慢，所以开发环境不使用懒加载，只有生产环境使用懒加载
@@ -17,82 +19,10 @@ const frameIn = [
         path: 'index',
         name: 'index',
         meta: {
+          title: '首页',
           auth: true
         },
         component: _import('system/index')
-      },
-      // 演示页面
-      {
-        path: 'page1',
-        name: 'page1',
-        meta: {
-          title: '页面 1',
-          auth: true
-        },
-        component: _import('demo/page1')
-      },
-      {
-        path: 'markdown/editor',
-        name: 'markdownEditor',
-        meta: {
-          title: 'Markdown编辑器',
-          auth: true
-        },
-        component: _import('demo/markdownEditor')
-      },
-      {
-        path: 'markdown/text',
-        name: 'markdownText',
-        meta: {
-          title: 'Markdown文本',
-          auth: true
-        },
-        component: _import('demo/markdownText/source')
-      },
-      {
-        path: 'person',
-        name: 'person',
-        meta: {
-          title: '个人主页',
-          auth: true
-        },
-        component: _import('demo/person')
-      },
-      {
-        path: 'uploadFile',
-        name: 'uploadFile',
-        meta: {
-          title: '大文件上传',
-          auth: true
-        },
-        component: _import('demo/uploadFile')
-      },
-      {
-        path: 'virtualList',
-        name: 'virtualList',
-        meta: {
-          title: '虚拟列表',
-          auth: true
-        },
-        component: _import('demo/virtualList')
-      },
-      {
-        path: 'gridLayout',
-        name: 'gridLayout',
-        meta: {
-          title: '卡片拖拽',
-          auth: true
-        },
-        component: _import('demo/gridLayout')
-      },
-      {
-        path: 'vxeTable',
-        name: 'virtualTable',
-        meta: {
-          title: 'virtualTable',
-          auth: true
-        },
-        component: _import('demo/vxeTable')
       },
       // 系统 前端日志
       {
@@ -119,7 +49,8 @@ const frameIn = [
         component: _import('system/function/redirect')
       }
     ]
-  }
+  },
+  features
 ]
 
 /**

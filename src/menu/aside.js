@@ -2,10 +2,10 @@
 export default [
   { path: '/index', title: '首页', icon: 'home' },
   {
-    title: '页面',
+    title: '功能展示',
     icon: 'folder-o',
     children: [
-      { path: '/page1', title: '页面 1' },
+      { path: '/uploadImg', title: '图片上传' },
       { path: '/markdown/editor', title: 'Markdown编辑器' },
       { path: '/markdown/text', title: 'Markdown文本' },
       { path: '/uploadFile', title: '大文件上传' },

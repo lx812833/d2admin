@@ -71,6 +71,15 @@ export default {
         auth: true
       },
       component: resolve => require(['@/views/demo/vxeTable/index.vue'], resolve)
-    }
+    },
+    { 
+      path: '/listTree', 
+      name: 'listTreeNode',
+      meta: {
+        title: '多功能列表',
+        auth: true
+      },
+      component: resolve => require(['@/views/demo/listTree/index.vue'], resolve)
+    },
   ]
 }

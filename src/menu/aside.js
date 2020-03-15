@@ -11,7 +11,8 @@ export default [
       { path: '/uploadFile', title: '大文件上传' },
       { path: '/virtualList', title: '虚拟列表'},
       { path: '/gridLayout', title: '卡片拖拽'},
-      { path: '/vxeTable', title: 'vxeTable'}
+      { path: '/vxeTable', title: 'vxeTable'},
+      { path: '/listTree', title: '多功能列表'},
     ]
   },
   { path: '/index', title: '首页', icon: 'home' },

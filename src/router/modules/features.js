@@ -81,5 +81,14 @@ export default {
       },
       component: resolve => require(['@/views/demo/listTree/index.vue'], resolve)
     },
+    { 
+      path: '/xlsx', 
+      name: 'xlsxCsv',
+      meta: {
+        title: 'XLSX、CSV导入',
+        auth: true
+      },
+      component: resolve => require(['@/views/demo/xlsxCsv/index.vue'], resolve)
+    },
   ]
 }

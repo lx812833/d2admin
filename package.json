@@ -30,6 +30,7 @@
     "marked": "^0.8.0",
     "mockjs": "^1.0.1-beta3",
     "nprogress": "^0.2.0",
+    "papaparse": "^5.1.1",
     "qs": "^6.7.0",
     "screenfull": "^4.2.0",
     "simplemde": "^1.11.2",
@@ -41,7 +42,8 @@
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1",
     "vxe-table": "^2.8.17",
-    "xe-utils": "^2.3.5"
+    "xe-utils": "^2.3.5",
+    "xlsx": "^0.15.6"
   },
   "devDependencies": {
     "@d2-projects/vue-filename-injector": "^1.0.0",

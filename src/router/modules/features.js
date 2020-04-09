@@ -10,6 +10,15 @@ export default {
   component: layoutHeaderAside,
   children: [
     {
+      path: '/person',
+      name: 'person',
+      meta: {
+        title: '主页',
+        auth: true
+      },
+      component: resolve => require(['@/views/demo/person/index.vue'], resolve)
+    },
+    {
       path: '/uploadImg',
       name: 'uploadImg',
       meta: {
@@ -81,7 +90,7 @@ export default {
       },
       component: resolve => require(['@/views/demo/listTree/index.vue'], resolve)
     },
-    { 
+    {
       path: '/xlsx', 
       name: 'xlsxCsv',
       meta: {
@@ -90,5 +99,14 @@ export default {
       },
       component: resolve => require(['@/views/demo/xlsxCsv/index.vue'], resolve)
     },
+    {
+      path: '/fabric', 
+      name: 'fabric',
+      meta: {
+        title: 'fabric画布',
+        auth: true
+      },
+      component: resolve => require(['@/views/demo/fabric/index.vue'], resolve)
+    }
   ]
 }

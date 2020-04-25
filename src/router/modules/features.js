@@ -107,6 +107,15 @@ export default {
         auth: true
       },
       component: resolve => require(['@/views/demo/fabric/index.vue'], resolve)
+    },
+    {
+      path: '/rocker', 
+      name: 'rocker',
+      meta: {
+        title: 'Nipplejs摇杆',
+        auth: true
+      },
+      component: resolve => require(['@/views/demo/rocker/index.vue'], resolve)
     }
   ]
 }

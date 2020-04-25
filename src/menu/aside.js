@@ -16,6 +16,7 @@ export default [
       { path: '/listTree', title: '多功能列表' },
       { path: '/xlsx', title: 'XLSX、CSV导入' },
       { path: '/fabric', title: 'fabric画布' },
+      { path: '/rocker', title: 'Nipplejs摇杆' },
     ]
   },
   { path: '/index', title: '首页', icon: 'home' },
